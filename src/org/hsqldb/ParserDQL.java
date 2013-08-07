@@ -1017,10 +1017,12 @@ public class ParserDQL extends ParserBase {
         if (queryExpression.sortAndSlice == null) {
             queryExpression.addSortAndSlice(sortAndSlice);
         } else {
-            if (queryExpression.sortAndSlice.hasLimit()) {
-                if (sortAndSlice.hasLimit()) {
-                    throw Error.error(ErrorCode.X_42549);
-                }
+			if (queryExpression.sortAndSlice.hasLimit()
+					|| queryExpression.sortAndSlice.hasOrder()) {
+				if (queryExpression.sortAndSlice.hasLimit()
+						&& sortAndSlice.hasLimit()) {
+					throw Error.error(ErrorCode.X_42549);
+				}
 
                 for (int i = 0; i < sortAndSlice.exprList.size(); i++) {
                     Expression e = (Expression) sortAndSlice.exprList.get(i);
@@ -1028,7 +1030,7 @@ public class ParserDQL extends ParserBase {
                     queryExpression.sortAndSlice.addOrderExpression(e);
                 }
             } else {
-                queryExpression.addSortAndSlice(sortAndSlice);
+           		queryExpression.addSortAndSlice(sortAndSlice);
             }
         }
 
@@ -1108,11 +1110,13 @@ public class ParserDQL extends ParserBase {
 
                 if (queryExpression.sortAndSlice == null) {
                     queryExpression.addSortAndSlice(sortAndSlice);
-                } else {
-                    if (queryExpression.sortAndSlice.hasLimit()) {
-                        if (sortAndSlice.hasLimit()) {
-                            throw Error.error(ErrorCode.X_42549);
-                        }
+				} else {
+					if (queryExpression.sortAndSlice.hasLimit()
+							|| queryExpression.sortAndSlice.hasOrder()) {
+						if (queryExpression.sortAndSlice.hasLimit()
+								&& sortAndSlice.hasLimit()) {
+							throw Error.error(ErrorCode.X_42549);
+						}
 
                         for (int i = 0; i < sortAndSlice.exprList.size();
                                 i++) {
