@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.hsqldb</groupId>
 	<artifactId>hsqldb</artifactId>
-	<version>2.3.0-CUSTOM</version>
+	<version>2.3.1-SNAPSHOT</version>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
