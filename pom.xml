@@ -21,12 +21,12 @@
 		<repository>
 			<id>releases</id>
 			<name>Internal Releases</name>
-			<url>http://alexanderkose.de/nexus/content/repositories/releases/</url>
+			<url>http://kose.one/nexus/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Internal Releases</name>
-			<url>http://alexanderkose.de/nexus/content/repositories/snapshots/</url>
+			<url>http://kose.one/nexus/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<dependencies>
